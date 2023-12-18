@@ -1,8 +1,8 @@
 class Joueur:
     """Classe Joueur"""
-    def __init__(self):
+    def __init__(self, paquet):
         self.__nom = input("Entrez votre nom: ")
-        self.__paquet = []
+        self.__paquet = paquet
 
     def get_nom(self):
         """Renvoie le nom du joueur."""
@@ -15,6 +15,10 @@ class Joueur:
     def set_paquet(self, paquet):
         """Modifie le paquet du joueur."""
         self.__paquet = paquet
+        
+    def paquet_vide(self):
+        """Verifie si le paquet est vide."""
+        return self.__paquet == []
 
     def ajouter_carte(self, carte):
         """Ajoute une carte au paquet du joueur."""
@@ -31,4 +35,5 @@ class Joueur:
     def __str__(self):
         """Affiche le joueur."""
         return self.get_nom() + " : " + str(self.get_paquet())
+
 
