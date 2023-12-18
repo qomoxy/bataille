@@ -107,14 +107,17 @@ class Deck:
         
     def partage(self):
         """Partage le deck en deux paquets."""
-        paquet1 = []
+        paquet1= []
         paquet2 = []
         
-        for i in range(len(self.get_tete()) // 2):
-            paquet1.append(self.__deck[i])
-        for i in range(len(self.get_deck()) // 2):
-            paquet2.append(self.__deck[i])
+        for i in range(len(self.__deck)):
+            if i % 2 == 0:
+                paquet1.append(self.__deck[i])
+            else:
+                paquet2.append(self.__deck[i])
         return paquet1, paquet2
+            
+            
                 
     def __str__(self):
         """Affiche le deck."""
@@ -124,3 +127,4 @@ class Deck:
         return res
                 
 deck = Deck()
+
