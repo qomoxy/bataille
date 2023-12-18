@@ -37,53 +37,35 @@ class File:
             s = str(self.__file[i]) + ' -> ' + s
         s = 'Entrée -> ' + s
         return s
-    
-class Cellule:
-    """Classe représentant une cellule d'une pile."""
-    
-    def __init__(self, v, s):
-        """
-        Création d'une cellule contenant la valeur v et pointant sur la cellule.
-        :param v: la valeur de la cellule
-        :param s: la cellule suivante
-        """
-        self.__valeur = v
-        self.__suivante = s
 
-    def get_valeur(self):
-        """Renvoie la valeur de la cellule."""
-        return self.__valeur
-
-    def get_suivante(self):
-        """Renvoie la cellule suivante."""
-        return self.__suivante
     
 class Pile:
     """Classe représentant une pile LIFO."""
     
     def __init__(self):
         """Création d'une pile vide."""
-        self.contenu = None
+        self.contenu = []
+        
+    def pile_vide():
+        """Return une pile vide"""
+        return []
         
     def est_vide(self):
         """Teste si la pile est vide."""
-        return self.contenu is None
+        return len(self.contenu) == 0
     
     def empile(self, v):
         """
         Ajoute la valeur v en sommet de pile.
         :param v: la valeur à ajouter
         """
-        c = Cellule(v, self.contenu)
-        self.contenu = c
+        self.contenu.append(v)
     
-    def defiller(self):
+    def depile(self):
         """Retire l'élément en sommet de pile."""
         if self.est_vide():
             raise IndexError("La pile est vide !")
-        tmp = self.contenu = self.contenu.suivante
-        self.contenu = self.contenu.suivant
-        return tmp
+        return self.contenu.pop()
     
     def __str__(self):
         """Affiche la pile."""
@@ -91,3 +73,4 @@ class Pile:
         for i in range(len(self.contenu)):
             s = str(self.contenu[i]) + "\n" + s
         return s
+
