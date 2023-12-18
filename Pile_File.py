@@ -13,7 +13,7 @@ class File:
         """Teste si la file est vide."""
         return len(self.__file) <= 0
         
-    def defiller(self):
+    def defiler(self):
         """Retire l'élément en sortie de file."""
         if self.est_vide():
             raise IndexError("La file est vide !")
@@ -29,6 +29,10 @@ class File:
     def vider(self):
         """Vide la file."""
         self.__file = []
+
+    def taille(self):
+        """Renvoie la taille de la file."""
+        return len(self.__file)
         
     def __str__(self):
         """Affiche la file."""
@@ -46,7 +50,7 @@ class Pile:
         """Création d'une pile vide."""
         self.contenu = []
         
-    def pile_vide():
+    def pile_vide(self):
         """Return une pile vide"""
         return []
         
@@ -66,6 +70,10 @@ class Pile:
         if self.est_vide():
             raise IndexError("La pile est vide !")
         return self.contenu.pop()
+
+    def taille(self):
+        """Renvoie la taille de la pile."""
+        return len(self.contenu)
     
     def __str__(self):
         """Affiche la pile."""
@@ -73,4 +81,3 @@ class Pile:
         for i in range(len(self.contenu)):
             s = str(self.contenu[i]) + "\n" + s
         return s
-
